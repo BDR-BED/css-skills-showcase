@@ -1,0 +1,187 @@
+/* 🌈 CSS Variables */
+:root {
+    --primary-color: #4a90e2;
+    --bg-color: #f5f5f5;
+    --text-color: #222;
+    --radius: 12px;
+    --transition: 0.3s ease;
+  }
+  
+  /* ✨ @layer: cascade control */
+  @layer base, layout, components;
+  
+  @layer base {
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+  
+    body {
+      font-family: sans-serif;
+      color: var(--text-color);
+      background: var(--bg-color);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+  
+    h1, h2 {
+      color: var(--primary-color);
+      margin-bottom: 0.5em;
+    }
+  }
+  
+  @layer layout {
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+  
+    .flex-container {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+  
+    .item {
+      background: rgb(118, 118, 118);
+      padding: 1rem;
+      border-radius: var(--radius);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+  }
+  
+  @layer components {
+    .box {
+      width: 150px;
+      height: 150px;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      background: var(--primary-color);
+      border-radius: var(--radius);
+      transition: transform var(--transition), background var(--transition);
+    }
+  
+    .box:hover {
+      transform: scale(1.1) rotate(5deg);
+      background: #357abd;
+    }
+  
+    .animate {
+      animation: pulse 2s infinite;
+    }
+  
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(74,144,226, 0.4); }
+      70% { box-shadow: 0 0 0 20px rgba(74,144,226, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(74,144,226, 0); }
+    }
+  
+    /* 📱 Responsive design */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: clamp(1.5rem, 5vw, 2.5rem);
+      }
+    }
+  
+    /* 🧪 Modern Features */
+    input[type="checkbox"] {
+      accent-color: var(--primary-color);
+      margin-right: 8px;
+    }
+  
+    /* ⚡️ New: :has() — needs support in latest browsers */
+    .has-demo:has(button:hover) {
+      background: #d1ecff;
+    }
+  
+    /* aspect-ratio */
+    .card {
+      aspect-ratio: 4 / 3;
+      padding: 1rem;
+      background: white;
+      border-radius: var(--radius);
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      transition: background var(--transition);
+    }
+  }
+  
+  /* 🧪 @scope — experimental */
+  @scope (.card) {
+    p {
+      color: darkblue;
+    }
+  }
+
+  :root {
+    --bg-color: #ffffff;
+    --text-color: #1a1a1a;
+    --card-bg: #f2f2f2;
+    --primary-color: #4a90e2;
+  }
+  
+  .dark-mode {
+    --bg-color: #1a1a1a;
+    --text-color: #f5f5f5;
+    --card-bg: #333333;
+    --primary-color: #64b5f6;
+  }
+  
+  body {
+    background: var(--bg-color);
+    color: var(--text-color);
+    font-family: sans-serif;
+    padding: 2rem;
+    transition: background 0.3s, color 0.3s;
+  }
+  
+  h1, h2, h3 {
+    color: var(--primary-color);
+  }
+  
+  button {
+    padding: 0.5rem 1rem;
+    background: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  /* 📦 Container Queries */
+  .card-container {
+    container-type: inline-size;
+    container-name: card;
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 1rem;
+    border: 2px dashed var(--primary-color);
+  }
+  
+  .card {
+    background: var(--card-bg);
+    padding: 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+  
+  @container card (min-width: 400px) {
+    .card {
+      background: var(--primary-color);
+      color: white;
+      font-size: 1.2rem;
+      padding: 2rem;
+    }
+  }
+  
+  footer {
+    text-align: center;
+    margin-top: 3rem;
+    font-size: 0.9rem;
+    opacity: 0.6;
+  }
+  
+  
