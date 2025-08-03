@@ -99,6 +99,7 @@ This project demonstrates a modern and practical implementation of CSS features 
 
 ---
 
-Created by **[Boiko Danulo]**  
+## ✍️ Author
+Created by **Boiko Danulo**  
 
 ---
