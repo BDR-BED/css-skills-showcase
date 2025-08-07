@@ -2,6 +2,8 @@
 
 This project demonstrates a modern and practical implementation of CSS features — both classical and cutting-edge — including dark/light themes and container queries.
 
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&)
+
 ---
 
 ## 🚀 Features
